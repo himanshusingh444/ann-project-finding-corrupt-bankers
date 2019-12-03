@@ -1,13 +1,6 @@
 # Artificial Neural Network
 
-# Installing Theano
-# pip install --upgrade --no-deps git+git://github.com/Theano/Theano.git
 
-# Installing Tensorflow
-# pip install tensorflow
-
-# Installing Keras
-# pip install --upgrade keras
 
 # Part 1 - Data Preprocessing
 
@@ -52,13 +45,13 @@ from keras.layers import Dense
 classifier = Sequential()
 
 # Adding the input layer and the first hidden layer
-classifier.add(Dense(units = 6, kernel_initializer = 'uniform', activation = 'relu', input_dim = 11))
+classifier.add(Dense(units = 6, kernel_initializer = 'uniform', activation = 'relu', input_dim = 11)) #units perimetr is six because we take average of input and output nodes
 
 # Adding the second hidden layer
-classifier.add(Dense(units = 6, kernel_initializer = 'uniform', activation = 'relu'))
+classifier.add(Dense(units = 6, kernel_initializer = 'uniform', activation = 'relu'))#we have used rectifier function in hidden layer
 
 # Adding the output layer
-classifier.add(Dense(units = 1, kernel_initializer = 'uniform', activation = 'sigmoid'))
+classifier.add(Dense(units = 1, kernel_initializer = 'uniform', activation = 'sigmoid')) #we have use sigmoid function in output layer because our problem is on the basis of classifiaction
 
 # Compiling the ANN
 classifier.compile(optimizer = 'adam', loss = 'binary_crossentropy', metrics = ['accuracy'])
@@ -73,5 +66,5 @@ y_pred = classifier.predict(X_test)
 y_pred = (y_pred > 0.5)
 
 # Making the Confusion Matrix
-from sklearn.metrics import confusion_matrix
+from sklearn.metrics import confusion_matrix #it tells the accuracy and inaccurate result of our predicted value
 cm = confusion_matrix(y_test, y_pred)
