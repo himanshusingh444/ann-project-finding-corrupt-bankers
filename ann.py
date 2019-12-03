@@ -55,7 +55,7 @@ classifier.add(Dense(units = 1, kernel_initializer = 'uniform', activation = 'si
 
 # Compiling the ANN
 classifier.compile(optimizer = 'adam', loss = 'binary_crossentropy', metrics = ['accuracy'])
-
+                                      #if outcome is not binary then we will use 'categorical_crossentropy loss functiom'
 # Fitting the ANN to the Training set
 classifier.fit(X_train, y_train, batch_size = 10, epochs = 10)
 
